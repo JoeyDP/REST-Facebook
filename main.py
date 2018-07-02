@@ -5,13 +5,14 @@ from RESTfacebook import FacebookAPI
 
 bacli.setDescription("Test for FacebookAPI")
 
-TOKEN = "token"
+TOKEN = ""
 
 
 @bacli.command
 def run():
     fb = FacebookAPI(TOKEN)
-    page = fb.getPage(5)
+    page = fb.getPage(942723909080518)
+    print("page", page)
     posts = page.getPosts()
-    print(posts)
+    print("posts", posts)
 

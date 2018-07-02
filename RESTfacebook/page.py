@@ -1,18 +1,22 @@
-from RESTapi import GET, POST
+from RESTapi import Entity, GET, POST, StringProperty, ListProperty
 
-import facebook
+from post import Post
 
 
-class Page(facebook.FacebookAPI):
 
-    suffix = "page"
 
-    def __init__(self, fb):
-        super().__init__(fb)
+@Entity
+class Page(object):
 
-    @GET(suffix="posts")
+    # parameters
+    id = StringProperty()
+    name = StringProperty()
+
+    def __str__(self):
+        return self.name
+
+    @GET(suffix="posts", paginate=True)
     def getPosts(self):
         return Post
 
 
-from post import Post

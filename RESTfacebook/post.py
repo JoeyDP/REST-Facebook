@@ -1,14 +1,14 @@
 
-from RESTapi import GET, POST
-
-import facebook
+from RESTapi import Entity, GET, POST, StringProperty
 
 
-class Post(facebook.FacebookAPI):
-    def __init__(self, fb):
-        super().__init__(fb)
-        self.text = ""
+
+@Entity()
+class Post(object):
+    message = StringProperty(required=False)
 
     def __str__(self):
-        return self.text
+        return self.message
 
+    def __repr__(self):
+        return str(self)

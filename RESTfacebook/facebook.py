@@ -2,11 +2,17 @@
 from RESTapi import API, GET, POST
 
 
-class FacebookAPI(API):
-    base_url = "https://api.facebook.com/"
+@API(base_url='https://graph.facebook.com/')
+class FacebookAPI(object):
 
     def __init__(self, token):
         self.token = token
+
+    def paginate(self, Type, data):
+        #TODO: do actual pagination
+        elements = data['data']
+        result = [Type(self, elem) for elem in elements]
+        return result
 
     @GET
     def getPage(self, pageId):
