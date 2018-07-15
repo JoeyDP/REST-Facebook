@@ -1,0 +1,3 @@
+[submodule "REST-Client"]
+	path = REST-Client
+	url = git@github.com:JoeyDP/REST-Client.git
