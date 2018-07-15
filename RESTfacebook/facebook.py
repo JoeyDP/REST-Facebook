@@ -1,5 +1,5 @@
-
 from RESTapi import API, GET, POST
+from .page import Page
 
 
 @API(base_url='https://graph.facebook.com/')
@@ -8,10 +8,10 @@ class FacebookAPI(object):
     def __init__(self, token):
         self.token = token
 
-    def paginate(self, Type, data):
+    def paginate(self, Type, **data):
         #TODO: do actual pagination
         elements = data['data']
-        result = [Type(self, elem) for elem in elements]
+        result = [Type(self, **elem) for elem in elements]
         return result
 
     @GET
@@ -27,4 +27,3 @@ class FacebookAPI(object):
         return "page"
 
 
-from page import Page
