@@ -15,11 +15,11 @@ class Page(object):
     def __str__(self):
         return self.name
 
-    @GET(suffix="posts", paginate=True)
+    @GET(suffix="posts/", paginate=True)
     def getPosts(self):
         return Post
 
-    @GET(suffix="photos", paginate=True)
+    @GET(suffix="photos/", paginate=True)
     def getPhotos(self, type=None, fields=None):
         """ type can be: uploaded """
         return Photo
