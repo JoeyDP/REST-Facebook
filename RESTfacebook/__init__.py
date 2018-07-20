@@ -1,2 +1,2 @@
 
-from facebook import FacebookAPI
+from .facebook import FacebookAPI
